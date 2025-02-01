@@ -19,11 +19,11 @@ const Content = props => (
             <Route exact path="/">
                 <Home />
             </Route>
-            <Route path="/useState">
-                <UseState />
-            </Route>
             <Route path="/useEffect">
                 <UseEffect />
+            </Route>
+            <Route path="/useState">
+                <UseState />
             </Route>
             <Route path="/useRef">
                 <UseRef />
