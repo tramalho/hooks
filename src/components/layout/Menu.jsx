@@ -11,10 +11,10 @@ const Menu = props => (
                     <Link to="/">Início</Link>
                 </li>
                 <li>
-                    <Link to="/useState">useState()</Link>
+                    <Link to="/useEffect">useEffect()</Link>
                 </li>
                 <li>
-                    <Link to="/useEffect">useEffect()</Link>
+                    <Link to="/useState">useState()</Link>
                 </li>
                 <li>
                     <Link to="/useRef">useRef()</Link>
