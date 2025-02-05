@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
+import SectionTitle from '../../components/layout/SectionTitle'
 
 function calcFactorial(num) {
     const n = Number.parseInt(num)
@@ -9,10 +10,10 @@ function calcFactorial(num) {
 }
 
 const UseEffect = (_) => {
+    // Ex #01
     const [number, setNumber] = useState(1)
     const [factorial, setFactorial] = useState(1)
     const [invalidValue, setInvalidValue] = useState(" ")
-    const [evenOrOdd, setEvenOrOdd] = useState(" ")
 
     useEffect(_ => {
         setFactorial(calcFactorial(number))
@@ -26,6 +27,9 @@ const UseEffect = (_) => {
         }
     }, [factorial])
 
+    // Ex #02
+    const [evenOrOdd, setEvenOrOdd] = useState(" ")
+
     useEffect(_ => {
         setEvenOrOdd(number % 2 === 0 ? "Par" : "Ímpar")
     }, [number])
@@ -36,6 +40,7 @@ const UseEffect = (_) => {
                 title="Hook UseEffect"
                 subtitle="Permite executar efeitos colaterais em componentes funcionais!"
             />
+            <SectionTitle title="Exercicío #01"/>
             <div className="center">
                 <div>
                     <span className="text">Fatorial:</span>
@@ -45,6 +50,9 @@ const UseEffect = (_) => {
                 onChange={e => setNumber(e.target.value)}
                 />
                 <span className="red"> {invalidValue}</span>
+            </div>
+            <SectionTitle title="Exercicío #02"/>
+            <div className="center">
                 <div>
                     <span className="text">Status:</span>
                     <span className="text red">{evenOrOdd}</span>
