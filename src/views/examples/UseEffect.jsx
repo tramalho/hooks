@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
 
 function calcFactorial(num) {
-    const n = parseInt(num)
+    const n = Number.parseInt(num)
     if(n < 0) return -1
     if(n === 0) return 1
     return calcFactorial(n - 1) * n
 }
 
-const UseEffect = (props) => {
+const UseEffect = (_) => {
     const [number, setNumber] = useState(1)
     const [factorial, setFactorial] = useState(1)
     const [invalidValue, setInvalidValue] = useState(" ")
+    const [evenOrOdd, setEvenOrOdd] = useState(" ")
 
     useEffect(_ => {
         setFactorial(calcFactorial(number))
@@ -24,6 +25,10 @@ const UseEffect = (props) => {
             setInvalidValue(" ")
         }
     }, [factorial])
+
+    useEffect(_ => {
+        setEvenOrOdd(number % 2 === 0 ? "Par" : "Ímpar")
+    }, [number])
 
     return (
         <div className="UseEffect">
@@ -39,8 +44,11 @@ const UseEffect = (props) => {
                 <input type="number" className="input" value={number} 
                 onChange={e => setNumber(e.target.value)}
                 />
-                                    <span className="red"> {invalidValue}</span>
-
+                <span className="red"> {invalidValue}</span>
+                <div>
+                    <span className="text">Status:</span>
+                    <span className="text red">{evenOrOdd}</span>
+                </div>
             </div>
         </div>
     )
