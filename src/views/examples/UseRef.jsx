@@ -2,8 +2,13 @@ import React, { useEffect, useRef } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
 import SectionTitle from '../../components/layout/SectionTitle'
 
-const merge = function(s1, s2) {
-    return s1 + s2
+const merge = (s1, s2) => {
+    const size = Math.max(s1.length, s2.length)
+    let result = ''
+    for(let i = 0; i < size; i++) {
+        result += `${s1[i] || ''}${s2[i] || ''}`
+    } 
+    return result
 }
 
 const UseRef = (props) => {
