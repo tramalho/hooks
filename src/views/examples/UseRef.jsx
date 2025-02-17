@@ -21,12 +21,12 @@ const UseRef = (props) => {
     useEffect(() => {
         count.current = count.current + 1
         myInput2.current.focus()
-    }, [count, value1])
+    }, [])
 
     useEffect(() => {
         count.current++
         myInput1.current.focus()
-    }, [value2])
+    }, [])
 
     return (
         <div className="UseRef">
