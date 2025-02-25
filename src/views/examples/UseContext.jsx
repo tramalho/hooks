@@ -48,7 +48,7 @@ const UseContext = (props) => {
 
                 </div>
             </div>
-        </div>
+        </div> 
     )
 }
 
