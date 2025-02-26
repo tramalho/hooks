@@ -8,6 +8,17 @@ const initialState = {
 	number: 0,
 };
 
+function validateNumber(number) {
+	if (Number.isNaN(number)) {
+		return 0;
+	}
+
+	if(number === '') {
+		return 0;
+	}
+	return number;	
+}
+
 function reducer(state, action) {
 	switch (action.type) {
 		case "number_add2": {
@@ -15,6 +26,19 @@ function reducer(state, action) {
 		}
 		case "login": {
 			return { ...state, user: { name: action.payload } };
+		}
+		case "multiply_by_7": {
+			return { ...state, number: state.number * 7 };
+		}
+		case "divide_by_25": {
+			return { ...state, number: state.number / 25 };
+		}
+		case "parse_to_int": {
+			return { ...state, number: Number.parseInt(state.number) };
+		}
+		case "add": {
+			console.log(action.payload);
+			return { ...state, number: validateNumber(action.payload)};
 		}
 		default:
 			return state;
@@ -52,6 +76,29 @@ const UseReducer = (props) => {
 					>
 						+2
 					</button>
+					<button
+						type="button"
+						className="btn"
+						onClick={() => dispatch({ type: "multiply_by_7" })}
+					>
+						x7
+					</button>
+					<button
+						type="button"
+						className="btn"
+						onClick={() => dispatch({ type: "divide_by_25" })}
+					>
+						/25
+					</button>
+					<button
+						type="button"
+						className="btn"
+						onClick={() => dispatch({ type: "parse_to_int" })}
+					>
+						parse
+					</button>
+					<input type="number" className="input" 
+					onChange={e => dispatch({type: "add", payload: e.target.value})}/>
 				</div>
 			</div>
 		</div>
